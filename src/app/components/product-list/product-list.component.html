@@ -1,0 +1,68 @@
+<div class="container-fluid">
+    <h1 style="text-align: center">List of Products</h1>
+    <div class="row">
+        <div class="col-2">
+        </div>
+        <div class="col-8">
+            <mat-grid-list [cols]="2" rowHeight="2:1" [gutterSize]="'5px'">
+                <mat-grid-tile *ngFor="let item of productList; let i = index">
+                    <mat-card class="mat-elevation-z2">
+                        <mat-card-header>
+                            <mat-card-title>
+                                {{item.name}}
+                            </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <p>{{item.description}}</p>
+                        </mat-card-content>
+                        <mat-card-footer>
+                            <mat-card-actions align="end">
+                                <div style="margin-right: 30px;">
+                                    <p style="vertical-align: middle; display:inline; margin-right: 20px;" >Price: {{item.price}}</p>
+                                    <button (click)="editProduct(item)" type="button" class="btn btn-outline-success" style="margin-right: 20px">
+                                        <fa-icon [icon]="faEdit" style="cursor: pointer">
+                                        </fa-icon>
+                                    </button>
+                                    <button type="button" class="btn btn-outline-danger">
+                                        <fa-icon [icon]="faArchive"></fa-icon>
+                                    </button>
+                                </div>
+                            </mat-card-actions>
+                        </mat-card-footer>
+                    </mat-card>
+                </mat-grid-tile>
+            </mat-grid-list>
+            <!--                 <div class="row">
+                    <div *ngFor="let item of productList; let i = index">
+                        <div *ngIf="!item.isArchived">
+                            <div class="card w-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        {{item.name}}
+                                    </h5>
+                                    <p class="card-text">
+                                        {{item.description}}
+                                    </p>
+                                    <p class="card-text">Price: {{item.price}}</p>
+                                    <a class="btn">
+                                        <fa-icon [icon]="faEdit" (click)="editProduct(item)"></fa-icon>
+                                    </a>
+                                    <a class="btn">
+                                        <fa-icon [icon]="faArchive"></fa-icon>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+        </div>
+        <div class="col-2">
+            <p style="text-align: start; cursor: pointer;">
+                Grid View</p>
+            <p style="text-align: start; cursor: pointer;">
+                Large Icon View</p>
+            <p style="text-align: start; cursor: pointer;">
+                Small Icon View</p>
+        </div>
+    </div>
+</div>
